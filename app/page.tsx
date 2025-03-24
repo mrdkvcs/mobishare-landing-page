@@ -15,6 +15,7 @@ import EVChargingIllustration from "@/components/ev-charging-illustration";
 import AppInterface3D from "@/components/app-interface-3d";
 import NewsletterForm from "@/components/newsletter-form";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Home() {
   // References to sections for scrolling
@@ -22,11 +23,10 @@ export default function Home() {
   const featuresRef = useRef<HTMLElement>(null);
   const missionRef = useRef<HTMLElement>(null);
   const newsletterRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
 
   // Function to handle smooth scrolling to sections
-  const scrollToSection = (sectionRef: React.RefObject<HTMLElement>) => {
-    if (sectionRef.current) {
+  const scrollToSection = (sectionRef: React.RefObject<HTMLElement | null>) => {
+    if (sectionRef?.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -41,8 +41,6 @@ export default function Home() {
         featuresRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (hash === "#mission" && missionRef.current) {
         missionRef.current.scrollIntoView({ behavior: "smooth" });
-      } else if (hash === "#contact" && contactRef.current) {
-        contactRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (hash === "#newsletter" && newsletterRef.current) {
         newsletterRef.current.scrollIntoView({ behavior: "smooth" });
       }
@@ -86,12 +84,6 @@ export default function Home() {
               className="text-[#0C1D32] hover:text-[#007AAD] transition-colors"
             >
               Küldetés
-            </button>
-            <button
-              onClick={() => scrollToSection(contactRef)}
-              className="text-[#0C1D32] hover:text-[#007AAD] transition-colors"
-            >
-              Kapcsolat
             </button>
             <button
               onClick={() => scrollToSection(newsletterRef)}
@@ -512,6 +504,12 @@ export default function Home() {
             <NewsletterForm />
             <p className="text-[#D9E2E9]/70 text-sm mt-4">
               Tiszteletben tartjuk a magánéletedet. Bármikor leiratkozhatsz.
+              <Link
+                href="/privacy-policy"
+                className="text-[#007AAD] hover:underline"
+              >
+                Adatvédelmi szabályzat
+              </Link>
             </p>
           </div>
         </div>
@@ -526,6 +524,14 @@ export default function Home() {
               <span className="text-lg font-bold text-[#FFFBFC]">
                 MobiShare
               </span>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-4 md:mb-0">
+              <Link
+                href="/privacy-policy"
+                className="text-[#D9E2E9]/80 hover:text-[#FFFBFC] text-sm"
+              >
+                Adatvédelmi szabályzat
+              </Link>
             </div>
             <div className="text-[#D9E2E9]/70 text-sm">
               © {new Date().getFullYear()} MobiShare. Minden jog fenntartva.

@@ -5,7 +5,6 @@ import { z } from "zod";
 // Define schema for form validation
 const newsletterSchema = z.object({
   email: z.string().email({ message: "Érvényes email címet adjon meg" }),
-  name: z.string().optional(),
 });
 
 export type SubscriptionStatus = {
@@ -19,16 +18,13 @@ export async function subscribeToNewsletter(
   try {
     // Extract and validate form data
     const email = formData.get("email") as string;
-    const name = (formData.get("name") as string) || undefined;
-
     // Validate the data
-    const validatedData = newsletterSchema.parse({ email, name });
+    const validatedData = newsletterSchema.parse({ email });
 
     // Insert data into Supabase
     const { error } = await supabase.from("newsletter_subscribers").insert([
       {
         email: validatedData.email,
-        name: validatedData.name,
         subscribed_at: new Date().toISOString(),
       },
     ]);
