@@ -3,7 +3,6 @@
 import type React from "react";
 import {
   ChevronRight,
-  Zap,
   Map,
   Clock,
   MessageSquareText,
@@ -63,7 +62,12 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b border-[#D9E2E9] bg-[#FFFBFC]/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Zap className="h-8 w-8 text-[#007AAD]" />
+            <img
+              src="/favicon.png"
+              width={50}
+              height={50}
+              alt="MobiShare Logo"
+            />
             <span className="text-xl font-bold text-[#0C1D32]">MobiShare</span>
           </div>
           <nav className="hidden md:flex items-center  gap-6">
@@ -520,7 +524,12 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 mb-4 md:mb-0">
-              <Zap className="h-6 w-6 text-[#007AAD]" />
+              <img
+                src="/favicon.png"
+                width={50}
+                height={50}
+                alt="MobiShare Logo"
+              />
               <span className="text-lg font-bold text-[#FFFBFC]">
                 MobiShare
               </span>
