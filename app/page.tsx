@@ -109,7 +109,7 @@ export default function Home() {
                 Megoldás Magyarországon
               </h1>
               <p className="text-lg text-[#0C1D32]/80 max-w-md">
-                Érje eldadqwdqwdqwsdsa az összes töltőállomást Magyarországon egyetlen
+                Érje el az összes töltőállomást Magyarországon egyetlen
                 alkalmazással. Valós idejű adatok, megbízható információk és
                 MI-alapú asszisztencia.
               </p>
